@@ -23,6 +23,7 @@ import numpy as np
 from earth2mip.initial_conditions.era5 import open_era5_xarray, HDF5DataSource
 from earth2mip.initial_conditions import ifs
 from earth2mip.initial_conditions import cds
+from earth2mip.initial_conditions import rda
 from earth2mip.initial_conditions import gfs
 from earth2mip.initial_conditions import hrmip
 
