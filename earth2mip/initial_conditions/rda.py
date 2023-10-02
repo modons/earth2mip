@@ -18,7 +18,7 @@ var_to_file_name = {
 } 
 
 CHANNEL_TO_CODE = {
-    "z": 129,
+    "z": 129, # z200
     "u": 131,
     "v": 132,
     "t": 130,
@@ -69,7 +69,7 @@ def open_casper_nc(codes, time):
         # e5.oper.an.sfc.228_247_100v.ll025sc.1980010100_1980013123.nc
         if isinstance(code, SingleLevelCode):
             path = SFC_DATA_PATH + f"{year}{month}/" + \
-                f"e5.oper.an.sfc.128_{code.id}_{code.name}.{termll025}.{year}{month}{day}00_{year}{month}{month_end_day}23.nc"
+                f"e5.oper.an.sfc.128_{code.id}_{code.name}.{termll025}.{year}{month}0100_{year}{month}{month_end_day}23.nc"
         elif isinstance(code, PressureLevelCode):
             path = LEVEL_DATA_PATH + f"{year}{month}/" + \
                 f"e5.oper.an.pl.128_{code.id}_{code.name}.{termll025}.{year}{month}{day}00_{year}{month}{day}23.nc"
@@ -150,5 +150,5 @@ if __name__ == "__main__":
     #     print(parse_channel(name))
     # for name in pangu_channel[:3]:
     ds = DataSource(channel0[::1])
-    res = ds[datetime.datetime(1980, 1, 1)]
+    res = ds[datetime.datetime(2018, 1, 1)]
     print(res)
