@@ -4,7 +4,7 @@ import os
 from earth2mip import registry, inference_ensemble
 from earth2mip.initial_conditions import cds,rda
 import os, json, logging, datetime
-
+import numpy as np
 
 model_registry = os.path.join(os.path.dirname(os.path.realpath(os. getcwd())), "/glade/u/home/zilumeng/earth2mip/examples/models")
 os.makedirs(model_registry, exist_ok=True)
@@ -23,9 +23,11 @@ pangu_registry = os.path.join(model_registry, "/glade/u/home/zilumeng/earth2mip/
 package = registry.get_model('pangu')#"/glade/u/home/zilumeng/earth2mip/examples/models/pangu/")
 pangu_inference_model = pangu.load(package)
 
-
 pangu_data_source = rda.DataSource(pangu_inference_model.in_channel_names)
+print('here is the data: ',type(pangu_data_source))
+
 time = datetime.datetime(2018, 1, 1)
+print('running inference...')
 pangu_ds = inference_ensemble.run_basic_inference(
     pangu_inference_model,
     n=24, # Note we run 24 steps here because Pangu is at 6 hour dt

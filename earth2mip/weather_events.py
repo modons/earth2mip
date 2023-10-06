@@ -26,6 +26,7 @@ class InitialConditionSource(Enum):
     era5: str = "era5"
     cds: str = "cds"
     gfs: str = "gfs"
+    rda: str = "rda"
     hrmip: str = "hrmip"
 
 

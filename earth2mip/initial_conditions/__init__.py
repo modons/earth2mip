@@ -115,6 +115,11 @@ def get(
         if n_history > 0:
             raise NotImplementedError("GFS initializations only work with n_history=0.")
         return gfs.get(time, channel_set)
+    elif source == schema.InitialConditionSource.rda:
+        ds_tmp = rda.DataSource(channel_set)
+        ds = ds_tmp[time]
+        #ds = ds_tmp[datetime.datetime(2017,9,2)]
+        return ds
     else:
         raise NotImplementedError(source)
 
@@ -131,6 +136,7 @@ def ic(
     channel_set: schema.ChannelSet,
     source: schema.InitialConditionSource,
 ):
+    print('source=',source)
     ds = get(n_history, time, channel_set, source)
     # TODO collect grid logic in one place
     if grid == schema.Grid.grid_720x1440:
