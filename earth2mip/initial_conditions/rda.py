@@ -7,9 +7,8 @@ import warnings
 # sfc 128
 # pl 128
 
-LEVEL_DATA_PATH = "/glade/collections/rda/data/ds633.0/e5.oper.an.pl/"
-SFC_DATA_PATH = "/glade/collections/rda/data/ds633.0/e5.oper.an.sfc/"
-
+LEVEL_DATA_PATH = "/glade/campaign/collections/rda/data/ds633.0/e5.oper.an.pl/"
+SFC_DATA_PATH = "/glade/campaign/collections/rda/data/ds633.0/e5.oper.an.sfc/"
 
 var_to_file_name = {
     "t2m":"2t",
